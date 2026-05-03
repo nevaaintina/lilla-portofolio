@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilla | Full-Stack UI/UX Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-pink': '#FFB2B2',
+                        'light-pink': '#FFF5F5',
+                        'dark-text': '#1A1A1A',
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3rem',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: #FFB2B2;
+            border-bottom-left-radius: 100%;
+            z-index: -1;
+        }
+        .btn-shadow { shadow-lg shadow-pink-200/50; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .mobile-nav-active { transform: translateX(0) !important; }
+    </style>
+</head>
+<body class="bg-white text-dark-text antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-[100] py-6 px-8 md:px-20 flex justify-between items-center bg-white/80 backdrop-blur-md">
+        <div class="text-2xl font-extrabold tracking-tighter">Lilla<span class="text-primary-pink">.</span></div>
+        
+        <div class="hidden md:flex space-x-10 text-sm font-bold uppercase tracking-widest text-slate-400">
+            <a href="#home" class="hover:text-dark-text transition">Landing</a>
+            <a href="#projects" class="hover:text-dark-text transition">Showcase</a>
+            <a href="#certi" class="hover:text-dark-text transition">Certificates</a>
+        </div>
+
+        <button id="hamburger" class="md:hidden p-2 text-dark-text">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[110] flex flex-col items-center justify-center space-y-8 text-2xl font-bold translate-x-full transition-transform duration-300 md:hidden">
+        <button id="close-menu" class="absolute top-8 right-8 text-4xl">&times;</button>
+        <a href="#home" class="menu-link">Landing</a>
+        <a href="#projects" class="menu-link">Showcase</a>
+        <a href="#certi" class="menu-link">Certificates</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center px-8 md:px-20 overflow-hidden">
+        <div class="hero-shape hidden md:block"></div>
+        
+        <div class="grid md:grid-cols-2 gap-12 w-full max-w-7xl mx-auto items-center pt-20">
+            <div data-aos="fade-right">
+                <h4 class="text-primary-pink font-extrabold uppercase tracking-[0.3em] mb-4">I'm Lilla</h4>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6">
+                    Frontend & <br> <span class="text-slate-300">Data Analyst</span>
+                </h1>
+                <p class="text-slate-400 text-lg mb-10 max-w-md">
+                    Membangun antarmuka yang bersih dan menganalisis data untuk menciptakan solusi digital yang berdampak nyata.
+                </p>
+                <div class="flex gap-4">
+                    <a href="mailto:lilla@email.com" class="px-10 py-4 bg-primary-pink text-white rounded-full font-bold shadow-xl shadow-pink-200/50 hover:scale-105 transition">Hire Me</a>
+                    <a href="#projects" class="px-10 py-4 border-2 border-slate-100 rounded-full font-bold hover:bg-slate-50 transition">My Portfolio</a>
+                </div>
+            </div>
+
+            <!-- Profile Image Container -->
+            <div class="relative justify-self-center md:justify-self-end" data-aos="zoom-in">
+                <div class="w-72 h-72 md:w-[450px] md:h-[450px] bg-white rounded-full overflow-hidden border-[15px] border-white shadow-2xl">
+                    <!-- GANTI SRC DENGAN FOTO PROFIL KAMU -->
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" 
+                         class="w-full h-full object-cover" alt="Profile">
+                </div>
+                <!-- Floating Card -->
+                <div class="absolute -bottom-5 -left-5 md:bottom-10 md:-left-10 bg-white p-6 rounded-3xl shadow-xl border border-slate-50 animate-bounce">
+                    <p class="text-xs font-bold text-slate-400 uppercase">Available for Work</p>
+                    <p class="font-extrabold text-xl">2026 Season ✨</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Row (Modern Minimalist) -->
+    <div class="bg-dark-text py-10 overflow-hidden">
+        <div class="flex flex-wrap justify-center gap-12 md:gap-20 opacity-50 px-6">
+            <img src="https://cdn.simpleicons.org/react/white" class="h-6 md:h-8 hover:scale-110 transition" alt="React">
+            <img src="https://cdn.simpleicons.org/tailwindcss/white" class="h-6 md:h-8 hover:scale-110 transition" alt="Tailwind">
+            <img src="https://cdn.simpleicons.org/python/white" class="h-6 md:h-8 hover:scale-110 transition" alt="Python">
+            <img src="https://cdn.simpleicons.org/looker/white" class="h-6 md:h-8 hover:scale-110 transition" alt="Looker">
+            <img src="https://cdn.simpleicons.org/figma/white" class="h-6 md:h-8 hover:scale-110 transition" alt="Figma">
+        </div>
+    </div>
+
+    <!-- Showcase / Projects -->
+    <section id="projects" class="py-32 px-8 md:px-20 max-w-7xl mx-auto">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 italic">I Might Great For Your Business</h2>
+            <p class="text-slate-400">Beberapa proyek pilihan yang saya kerjakan selama kuliah di Universitas Brawijaya.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+            <!-- Project 1 -->
+            <div class="group bg-slate-50 p-6 rounded-5xl border border-transparent hover:border-primary-pink transition-all duration-500" data-aos="fade-up">
+                <div class="w-full aspect-[4/3] bg-white rounded-4xl mb-8 overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1558603668-6570496b66f8?auto=format&fit=crop&q=80&w=800" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="px-4 pb-4">
+                    <h3 class="text-2xl font-extrabold mb-2 text-slate-800">Smart Greenhouse IoT</h3>
+                    <p class="text-slate-400 text-sm mb-6">Monitoring kelembapan dan suhu real-time berbasis ESP32.</p>
+                    <a href="#" class="text-primary-pink font-bold border-b-2 border-primary-pink/20 hover:border-primary-pink transition pb-1">Check Project</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="group bg-slate-50 p-6 rounded-5xl border border-transparent hover:border-primary-pink transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-full aspect-[4/3] bg-white rounded-4xl mb-8 overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1551288049-bbbda5366392?auto=format&fit=crop&q=80&w=800" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                </div>
+                <div class="px-4 pb-4">
+                    <h3 class="text-2xl font-extrabold mb-2 text-slate-800">FMCG Data Analysis</h3>
+                    <p class="text-slate-400 text-sm mb-6">Cleaning data dan visualisasi insight penjualan menggunakan Python.</p>
+                    <a href="#" class="text-primary-pink font-bold border-b-2 border-primary-pink/20 hover:border-primary-pink transition pb-1">Check Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certi" class="py-32 bg-light-pink">
+        <div class="max-w-7xl mx-auto px-8 md:px-20">
+            <h2 class="text-3xl font-extrabold mb-12" data-aos="fade-right">Achievements</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Cert Card -->
+                <div class="bg-white p-4 rounded-4xl border border-primary-pink/20" data-aos="zoom-in">
+                    <div class="aspect-square bg-slate-50 rounded-3xl mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-[10px] font-bold text-slate-400 uppercase mb-1">Professional Cert</p>
+                    <h4 class="font-extrabold text-sm text-slate-700">Frontend Web Expert</h4>
+                </div>
+                <!-- Duplicate cards here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 text-center px-8">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-8 italic">Let's Talk About Your Next Big Idea.</h2>
+        <div class="flex justify-center gap-8 mb-12 font-bold text-slate-400 text-sm uppercase tracking-widest">
+            <a href="#" class="hover:text-primary-pink transition">Instagram</a>
+            <a href="#" class="hover:text-primary-pink transition">LinkedIn</a>
+            <a href="#" class="hover:text-primary-pink transition">Dribbble</a>
+        </div>
+        <p class="text-[10px] font-bold text-slate-300">© 2026 LILLA — ALL RIGHTS RESERVED</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Mobile Nav
+        const menu = document.getElementById('mobile-menu');
+        document.getElementById('hamburger').onclick = () => menu.classList.add('mobile-nav-active');
+        document.getElementById('close-menu').onclick = () => menu.classList.remove('mobile-nav-active');
+        document.querySelectorAll('.menu-link').forEach(l => l.onclick = () => menu.classList.remove('mobile-nav-active'));
+    </script>
+</body>
+</html>
